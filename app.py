@@ -20,7 +20,7 @@ from plotly.subplots import make_subplots
 
 # Set page configuration
 st.set_page_config(
-    page_title="Stock Price Predictor Pro",
+    page_title="Stock Price Predictor",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -414,37 +414,37 @@ def main():
         return
     
     # Display current market overview
-    st.subheader("📈 Current Market Overview")
+    # st.subheader("📈 Current Market Overview")
     
-    col1, col2, col3, col4 = st.columns(4)
+    # col1, col2, col3, col4 = st.columns(4)
     
-    current_price = df_enhanced['Close'].iloc[-1] if len(df_enhanced) > 0 else 0
-    prev_price = df_enhanced['Close'].iloc[-2] if len(df_enhanced) > 1 else current_price
-    price_change = current_price - prev_price
-    price_change_pct = (price_change / prev_price) * 100 if prev_price != 0 else 0
+    # current_price = df_enhanced['Close'].iloc[-1] if len(df_enhanced) > 0 else 0
+    # prev_price = df_enhanced['Close'].iloc[-2] if len(df_enhanced) > 1 else current_price
+    # price_change = current_price - prev_price
+    # price_change_pct = (price_change / prev_price) * 100 if prev_price != 0 else 0
     
-    with col1:
-        st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        st.metric("💰 Current Price", f"${current_price:.2f}", f"{price_change_pct:+.2f}%")
-        st.markdown('</div>', unsafe_allow_html=True)
+    # with col1:
+    #     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    #     st.metric("💰 Current Price", f"${current_price:.2f}", f"{price_change_pct:+.2f}%")
+    #     st.markdown('</div>', unsafe_allow_html=True)
     
-    with col2:
-        st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        rsi = df_enhanced['RSI'].iloc[-1] if len(df_enhanced) > 0 else 50
-        st.metric("📊 RSI", f"{rsi:.1f}")
-        st.markdown('</div>', unsafe_allow_html=True)
+    # with col2:
+    #     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    #     rsi = df_enhanced['RSI'].iloc[-1] if len(df_enhanced) > 0 else 50
+    #     st.metric("📊 RSI", f"{rsi:.1f}")
+    #     st.markdown('</div>', unsafe_allow_html=True)
     
-    with col3:
-        st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        volume = df_enhanced['Volume'].iloc[-1] if len(df_enhanced) > 0 else 0
-        st.metric("📈 Volume", f"{volume:,.0f}")
-        st.markdown('</div>', unsafe_allow_html=True)
+    # with col3:
+    #     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    #     volume = df_enhanced['Volume'].iloc[-1] if len(df_enhanced) > 0 else 0
+    #     st.metric("📈 Volume", f"{volume:,.0f}")
+    #     st.markdown('</div>', unsafe_allow_html=True)
     
-    with col4:
-        st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        volatility = df_enhanced['Close'].pct_change().std() * 100
-        st.metric("⚡ Volatility", f"{volatility:.2f}%")
-        st.markdown('</div>', unsafe_allow_html=True)
+    # with col4:
+    #     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    #     volatility = df_enhanced['Close'].pct_change().std() * 100
+    #     st.metric("⚡ Volatility", f"{volatility:.2f}%")
+    #     st.markdown('</div>', unsafe_allow_html=True)
     
     # Sidebar configuration
     st.sidebar.image("https://cdn-icons-png.flaticon.com/512/179/179309.png", width=80)
@@ -851,4 +851,5 @@ def main():
         """)
 
 if __name__ == "__main__":
+
     main()
